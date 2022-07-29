@@ -8,6 +8,9 @@ const port = process.env.PORT || 3000
  app.get('/', (req, res) => {
     res.send('<h1>Hello World!</h1>');
   });
+  app.get('/sign', (req, res) => {
+    res.send('<h3>You must be authenticated to access this route </h3>');
+  });
   app.get('/about', (req, res) => {
     
     res.send('<h1>This lab is a deliverable</h1><h3>Build 10 Routes and a view engine, say anything you want</h3>');
@@ -16,7 +19,9 @@ const port = process.env.PORT || 3000
   app.get('/contact', (req, res) => {
     res.send('for more details contact US ')
   });
-   
+  app.get('/profile', (req,res) => {
+    res.send("Hello World, This is profile router");
+  });
   //calculate two numbers using form
   app.use(bodyParser.urlencoded({extended: true}))
 app.get('/calculator', (req, res) => {
@@ -51,6 +56,9 @@ app.get('/tpm', (req, res) => {
 
 app.get('/help', (req, res) => {
   res.render('template', { title: 'we can help you', message: 'what is express?', content: ' <ol><li>Fast</li><li>Unopinionated</li><li>Minimalist</li><li>Web application framework</li></ol>' })
+})
+app.get('/contact', (req, res) => {
+  res.render('contact', { title: 'Taieb OUBERKA', message: 'this is my address 288 walnut Newark', content: ' this is a contact page' })
 })
 
 //end template
